@@ -19,6 +19,8 @@ public class AboutController {
         public String title(Model model) {
             model.addAttribute("parameter", aboutService.getAboutParam());
             return "about";
+
+            //hi guysss
         }
     }
 
