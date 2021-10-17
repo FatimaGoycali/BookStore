@@ -6,12 +6,11 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "contact_us")
+@Table(schema = "contact", name = "contact_us")
 public class ContactUs {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String firstName;
     private String lastName;
     private String phone;
