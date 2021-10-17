@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bookstore</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Allison&family=Great+Vibes&family=Tangerine:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+
+    <link rel="stylesheet" th:href="@{css/style.css}">
+    <link rel="stylesheet" th:href="@{css/lightslider.css}">
+
+    <script type="text/javascript" th:src="@{/js/jquery-3.5.1.js}"></script>
+    <script type="text/javascript" th:src="@{/js/lightslider.js}"></script>
+    <script>
+        $(document).ready(function() {
+            $('#autoWidth').lightSlider({
+                autoWidth:true,
+                loop:true,
+                onSliderLoad: function() {
+                    $('#autoWidth').removeClass('cS-hidden');
+                }
+            });
+        });
+    </script>
+
+
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light py-3 fixed-top">
+    <div class="container">
+        <a class="navbar-brand"  th:href="@{/index}" style="color:rgb(160,82,45)" >Book Store</a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span><i id="bar" class="fas fa-bars"></i></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+
+                <form class="form-inline">
+                    <i class="fas fa-search" aria-hidden="true"></i>
+                    <input class="form-control form-control-sm ml-3 w-75" type="text" placeholder="Search"
+                           aria-label="Search">
+                </form>
+                <li class="nav-item">
+                    <a class="nav-link active" th:href="@{/index}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/shop}">Shop</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Category</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Arts & Music</a></li>
+                        <li><a class="dropdown-item" href="#">Biographies</a></li>
+                        <li><a class="dropdown-item" href="#">Business</a></li>
+                        <li><a class="dropdown-item" href="#">Comics</a></li>
+                        <li><a class="dropdown-item" href="#">Education</a></li>
+                        <li><a class="dropdown-item" href="#">History</a></li>
+                        <li><a class="dropdown-item" href="#">Horror</a></li>
+                        <li><a class="dropdown-item" href="#">Kids</a></li>
+                        <li><a class="dropdown-item" href="#">Literature & Fiction</a></li>
+                        <li><a class="dropdown-item" href="#">Mystery</a></li>
+                        <li><a class="dropdown-item" href="#">Romance</a></li>
+                        <li><a class="dropdown-item" href="#">Sci-Fi & Fantasy</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/contact}">Contact us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/about}">About</a>
+                </li>
+
+                <li class="nav-item"></li>
+
+                <i class="fas fa-shopping-bag"></i>
+                </ul>
+        </div>
+    </div>
+</nav>
+
+<section id="home">
+    <div class="container">
+        <h3>New Books</h3>
+        <span>Best Price</span>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            <br>Modi, assumenda.</p>
+        <button>Read Now</button>
+    </div>
+</section>
+
+<div class="daily-quote">
+    <div id="angle">
+        <i class="fas fa-angle-down"></i>
+    </div>
+    <h1>Today's Quote</h1>
+    <p>“If you don’t like to read, you haven’t found the right book.”<br>
+        J.K. Rowling</p>
+    <div id="angle">
+        <i class="fas fa-angle-up"></i>
+    </div>
+</div>
+
+<!-- PORTFOLIO -->
+
+<section id="portfolio">
+    <div class="portfolio">
+        <div class="portfolio-item ani1">
+<!--            <img th:src="${book.getBookImg()}">-->
+
+            <div class="overlay">
+<!--                <h2 th:attr="${book.getBookType()}"></h2>-->
+                <button class="text-uppercase">Shop Now</button>
+            </div>
+        </div>
+
+        <div class="portfolio-item ani2">
+            <img src="img/book2.jpg" alt="">
+            <div class="overlay">
+                <h2>Fantastic</h2>
+                <button class="text-uppercase">Shop Now</button>
+            </div>
+        </div>
+        <div class="portfolio-item ani3">
+            <img src="img/book3.jpg" alt="">
+            <div class="overlay">
+                <h2>Fiction</h2>
+                <button class="text-uppercase">Shop Now</button>
+            </div>
+        </div>
+        <div class="portfolio-item ani4">
+            <img src="img/book4.jpg" alt="">
+            <div class="overlay">
+                <h2>Detective</h2>
+                <button class="text-uppercase">Shop Now</button>
+            </div>
+        </div>
+
+
+    </div>
+</section>
+
+<!-- BEST SELLER -->
+
+<section id="best-seller" class="my-5 pb-5">
+    <div class="container text-center mt-5 py-5" >
+        <h3>Best Sellers of 2021</h3>
+        <hr class="mx-auto">
+    </div>
+    <div class="row mx-auto container-fluid">
+        <div class="product text-center col-lg-3 col-md-4 col-12">
+            <img class="img-fluid mb-3" src="img/best-st1.jpg" alt="">
+            <div class="star">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+            <h5 class="p-name">American Marxism</h5>
+            <h6>Mark R. Levin</h6>
+            <h4 class="p-price">$16.80</h4>
+            <button class="buy-btn">Buy Now</button>
+        </div>
+
+        <div class="product text-center col-lg-3 col-md-4 col-12">
+            <img class="img-fluid mb-3" src="img/best-st2.jpg" alt="">
+            <div class="star">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+            <h5 class="p-name">Atomic Habits</h5>
+            <h6>James Clear</h6>
+            <h4 class="p-price">$11.98</h4>
+            <button class="buy-btn">Buy Now</button>
+        </div>
+
+        <div class="product text-center col-lg-3 col-md-4 col-12">
+            <img class="img-fluid mb-3" src="img/best-st3.jpg" alt="">
+            <div class="star">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+            <h5 class="p-name">The Four Agreements</h5>
+            <h6>Don Miguel Ruiz</h6>
+            <h4 class="p-price">$99.75</h4>
+            <button class="buy-btn">Buy Now</button>
+        </div>
+
+        <div class="product text-center col-lg-3 col-md-4 col-12">
+            <img class="img-fluid mb-3" src="img/best-st4.jpg" alt="">
+            <div class="star">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+            <h5 class="p-name">The Boy, the Mole, the Fox and the Horse</h5>
+            <h6>Charlie Mackesy</h6>
+            <h4 class="p-price">$13.30</h4>
+            <button class="buy-btn">Buy Now</button>
+        </div>
+
+
+    </div>
+</section>
+
+<!-- BANNER -->
+
+<section id="banner" class="my-5 py-5" th:style="'background: url(img/bg.jpg)'">
+
+    <div class="container">
+        <h2>Hurry! Super Sale!</h2>
+        <h1>Current Books on Sale</h1>
+        <button class="text-uppercase">Shop Now</button>
+    </div>
+</section>
+
+<!-- SLIDER -->
+<section class="slider">
+    <div class="container text-center my-0" >
+        <h3>The Greatest Books of All Time</h3>
+        <hr class="mx-auto">
+    </div>
+    <ul id="autoWidth" class="cs-hidden">
+
+        <li class="item-a">
+            <div class="box">
+                <div class="slide-img">
+                    <img  src="img/slider1.jpg">
+                    <div class="overlay">
+                        <a href="#" class="buy-btn">Book Now</a>
+                    </div>
+                </div>
+                <div class="detail-box">
+                    <div class="type">
+                        <a href="#">In Search of Lost Time</a>
+                        <span>Marcel Proust</span>
+                    </div>
+                    <a href="#" class="price">$18.74</a>
+                </div>
+            </div>
+        </li>
+
+
+        <li class="item-a">
+            <div class="box">
+                <div class="slide-img">
+                    <img  src="img/slider2.jpg">
+                    <div class="overlay">
+                        <a href="#" class="buy-btn">Book Now</a>
+                    </div>
+                </div>
+                <div class="detail-box">
+                    <div class="type">
+                        <a href="#">Ulysses</a>
+                        <span>James Joyce</span>
+                    </div>
+                    <a href="#" class="price">$28.54</a>
+                </div>
+            </div>
+        </li>
+
+        <li class="item-a">
+            <div class="box">
+                <div class="slide-img">
+                    <img src="img/slider3.jpg">
+                    <div class="overlay">
+                        <a href="#" class="buy-btn">Book Now</a>
+                    </div>
+                </div>
+                <div class="detail-box">
+                    <div class="type">
+                        <a href="#">Don Quixote </a>
+                        <span>Miguel de Cervantes</span>
+                    </div>
+                    <a href="#" class="price">$28.94</a>
+                </div>
+            </div>
+        </li>
+
+
+        <li class="item-a">
+            <div class="box">
+                <div class="slide-img">
+                    <img  src="img/slider4.jpg">
+                    <div class="overlay">
+                        <a href="#" class="buy-btn">Book Now</a>
+                    </div>
+                </div>
+                <div class="detail-box">
+                    <div class="type">
+                        <a href="#">One Hundred Years Solitude</a>
+                        <span></span>Gabriel Marquez</span>
+                    </div>
+                    <a href="#" class="price">$40.23</a>
+                </div>
+            </div>
+        </li>
+
+
+        <li class="item-a">
+            <div class="box">
+                <div class="slide-img">
+                    <img  src="img/slider5.jpg">
+                    <div class="overlay">
+                        <a href="#" class="buy-btn">Book Now</a>
+                    </div>
+                </div>
+                <div class="detail-box">
+                    <div class="type">
+                        <a href="#">The Great Gatsby</a>
+                        <span>F. Scott Fitzgerald</span>
+                    </div>
+                    <a href="#" class="price">$10.97</a>
+                </div>
+            </div>
+        </li>
+
+
+        <li class="item-a">
+            <div class="box">
+                <div class="slide-img">
+                    <img src="img/slider6.jpg">
+                    <div class="overlay">
+                        <a href="#" class="buy-btn">Book Now</a>
+                    </div>
+                </div>
+                <div class="detail-box">
+                    <div class="type">
+                        <a href="#"> Moby Dick</a>
+                        <span>Herman Melvillege</span>
+                    </div>
+                    <a href="#" class="price">$23</a>
+                </div>
+            </div>
+        </li>
+
+
+        <li class="item-a">
+            <div class="box">
+                <div class="slide-img">
+                    <img  src="img/slider7.jpg">
+                    <div class="overlay">
+                        <a href="#" class="buy-btn">Buy Now</a>
+                    </div>
+                </div>
+                <div class="detail-box">
+                    <div class="type">
+                        <a href="#">War and Peace </a>
+                        <span>Leo Tolstoy</span>
+                    </div>
+                    <a href="#" class="price">$9.90</a>
+                </div>
+            </div>
+        </li>
+
+
+        <li class="item-a">
+            <div class="box">
+                <div class="slide-img">
+                    <img  src="img/slider8.jpg">
+                    <div class="overlay">
+                        <a href="#" class="buy-btn">Book Now</a>
+                    </div>
+                </div>
+                <div class="detail-box">
+                    <div class="type">
+                        <a href="#">Hamlet</a>
+                        <span>William Shakespeare</span>
+                    </div>
+                    <a href="#" class="price">$11.99</a>
+                </div>
+            </div>
+        </li>
+
+
+        <li class="item-a">
+            <div class="box">
+                <div class="slide-img">
+                    <img src="img/slider9.jpg">
+                    <div class="overlay">
+                        <a href="#" class="buy-btn">Book Now</a>
+                    </div>
+                </div>
+                <div class="detail-box">
+                    <div class="type">
+                        <a href="#">The Odyssey</a>
+                        <span>Homer</span>
+                    </div>
+                    <a href="#" class="price">$33.28</a>
+                </div>
+            </div>
+        </li>
+
+
+        <li class="item-a">
+            <div class="box">
+                <div class="slide-img">
+                    <img  src="img/slider10.jpg">
+                    <div class="overlay">
+                        <a href="#" class="buy-btn">Book Now</a>
+                    </div>
+                </div>
+                <div class="detail-box">
+                    <div class="type">
+                        <a href="#">Madame Bovary</a>
+                        <span> Gustave Flaubert</span>
+                    </div>
+                    <a href="#" class="price">$5.95</a>
+                </div>
+            </div>
+        </li>
+    </ul>
+</section>
+
+
+
+<!-- Fall into Fiction -->
+
+<section id="best-seller" class="my-5 pb-5">
+    <div class="container text-center mt-5 py-5" >
+        <h3>Fall into Fiction</h3>
+        <hr class="mx-auto">
+    </div>
+    <div class="row mx-auto container-fluid">
+        <div class="product text-center col-lg-3 col-md-4 col-12">
+            <img class="img-fluid mb-3" src="img/fall-fiction-1.jpg" alt="">
+            <div class="star">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+            <h5 class="p-name">The Archer</h5>
+            <h6>Shruti Swamy</h6>
+            <h4 class="p-price">$24.79</h4>
+            <button class="buy-btn">Buy Now</button>
+        </div>
+
+        <div class="product text-center col-lg-3 col-md-4 col-12">
+            <img class="img-fluid mb-3" src="img/fall-fiction-2.jpg" alt="">
+            <div class="star">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+            <h5 class="p-name">Carry the Dog</h5>
+            <h6>Stephanie Gangi</h6>
+            <h4 class="p-price">$24.79</h4>
+            <button class="buy-btn">Buy Now</button>
+        </div>
+
+        <div class="product text-center col-lg-3 col-md-4 col-12">
+            <img class="img-fluid mb-3" src="img/fall-fiction-3.jpg" alt="">
+            <div class="star">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+            <h5 class="p-name">The Leavers</h5>
+            <h6>Lisa Ko</h6>
+            <h4 class="p-price">$14.67</h4>
+            <button class="buy-btn">Buy Now</button>
+        </div>
+
+        <div class="product text-center col-lg-3 col-md-4 col-12">
+            <img class="img-fluid mb-3" src="img/fall-fiction-4.jpg" alt="">
+            <div class="star">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+            <h5 class="p-name">The Mountains Sing</h5>
+            <h6>Mai Phan Que Nguyen</h6>
+            <h4 class="p-price">$15.59</h4>
+            <button class="buy-btn">Buy Now</button>
+        </div>
+
+
+    </div>
+</section>
+
+<!-- FOOTER -->
+<div class="footer">
+    <div class="contain">
+        <div class="col">
+            <h1>Company</h1>
+            <ul>
+                <li>About</li>
+                <li>Mission</li>
+                <li>Services</li>
+                <li>Social</li>
+                <li>Get in touch</li>
+            </ul>
+        </div>
+        <div class="col">
+            <h1>Products</h1>
+            <ul>
+                <li>About</li>
+                <li>Mission</li>
+                <li>Services</li>
+                <li>Social</li>
+                <li>Get in touch</li>
+            </ul>
+        </div>
+        <div class="col">
+            <h1>Accounts</h1>
+            <ul>
+                <li>About</li>
+                <li>Mission</li>
+                <li>Services</li>
+                <li>Social</li>
+                <li>Get in touch</li>
+            </ul>
+        </div>
+        <div class="col">
+            <h1>Resources</h1>
+            <ul>
+                <li>Webmail</li>
+                <li>Redeem code</li>
+                <li>WHOIS lookup</li>
+                <li>Site map</li>
+                <li>Web templates</li>
+                <li>Email templates</li>
+            </ul>
+        </div>
+        <div class="col">
+            <h1>Support</h1>
+            <ul>
+                <li>Contact us</li>
+                <li>Web chat</li>
+                <li>Open ticket</li>
+            </ul>
+        </div>
+        <div class="col social">
+            <h1>Social</h1>
+            <ul>
+                <li><i class="fas fa-at"></i></li>
+                <li><i class="fab fa-facebook"></i> </li>
+                <li><i class="fab fa-instagram"></i></li>
+            </ul>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</div>
+</div>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
+</body>
+</html>
