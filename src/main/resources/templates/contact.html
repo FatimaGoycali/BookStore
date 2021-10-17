@@ -13,6 +13,7 @@
   <link rel="stylesheet" th:href="@{css/style.css}">
 
   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
 
@@ -73,7 +74,7 @@
 
 <div class="container-contact100 my-5 pt-5">
   <div class="wrap-contact100 mt-3">
-    <form class="contact100-form validate-form">
+    <div class="contact100-form validate-form">
 				<span class="contact100-form-title">
 					Send Us A Message
 				</span>
@@ -84,7 +85,7 @@
         <span class="focus-input100"></span>
       </div>
       <div class="wrap-input100 rs2-wrap-input100 validate-input" data-validate="Type last name">
-        <input class="input100" type="text" name="last-name" placeholder="Last name">
+        <input id = 'last-name' class="input100" type="text" name="last-name" placeholder="Last name">
         <span class="focus-input100"></span>
       </div>
 
@@ -106,12 +107,12 @@
         <span class="focus-input100"></span>
       </div>
 
-      <div class="container-contact100-form-btn">
+      <div class="container-contact100-form-btn" id = "contactButton">
         <button class="contact100-form-btn">
           Send Message
         </button>
       </div>
-    </form>
+    </div>
 
     <div class="contact100-more flex-col-c-m"  th:style="|background:url(@{/img/contactUsImg.jpg});|" >
 
@@ -197,6 +198,37 @@
   gtag('js', new Date());
 
   gtag('config', 'UA-23581568-13');
+
+  $(document).ready(function() {
+    $('#contactButton').click(function() {
+      let firstName = $('#first-name').val()
+      let lastName = $('#last-name').val()
+      let email = $('#email').val()
+      let phone = $('#phone').val()
+      let message = $('#message').val()
+
+      var data = {}
+      data.lastName = lastName
+      data.firstName = firstName
+      data.email = email
+      data.phone = phone
+      data.message = message
+
+      console.log(data)
+
+      $.ajax(
+              {
+                url: '/contact/',
+                type: 'POST',  // http method
+                data: JSON.stringify(data),  // data to submit
+                dataType: 'json',
+                contentType: "application/json"
+                // success: function (data) {
+                //     $('p').append('sucess')
+                // }
+              });
+    })
+  })
 </script>
 
 
