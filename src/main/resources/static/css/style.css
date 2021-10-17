@@ -151,7 +151,6 @@ hr{
 }
 
 #home{
-    background: url(static/img/bg.jpg);
     width: 100%;
     height: 100vh;
     background-size: cover;
@@ -164,9 +163,7 @@ hr{
     color: #fff;
 }
 
-#home #text{
 
-}
 #home span{
     font-size: 100px;
     letter-spacing: 2px;

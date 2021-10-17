@@ -38,8 +38,7 @@ public class HomeController {
         return "sbook";
     }
     @GetMapping({"contact"})
-    public String contact(Model model) {
-        model.addAttribute("books", bookService.getBookParams());
+    public String contact() {
         return "contact";
     }
     }
