@@ -10,4 +10,5 @@ import java.util.Optional;
 public interface AboutRepository extends CrudRepository<AboutEntity, Integer> {
 
     Optional<AboutEntity> findById(Integer id);
+
 }
