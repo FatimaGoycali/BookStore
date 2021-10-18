@@ -287,9 +287,9 @@ hr{
 
 /* PRODUCTS */
 .product{
-    display: inline;
+    display: flex;
     cursor: pointer;
-    margin-bottom: 2rem;
+   /*margin-bottom: 2rem;*/
 }
 
 .product img{
@@ -454,6 +454,68 @@ a{
     justify-content: center;
     align-items: center;
 }
+                                    /*Shop page */
+
+.box-container{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-left: 20%;
+}
+.box-container .box{
+    flex: 1 1 30rem;
+    border-radius: .5rem;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 1rem 2rem rgba(0, 0,0, .1);
+}
+
+.box-container .box img{
+    width: 100%;
+    object-fit: cover;
+    height: 25rem;
+
+}
+.box-container .box .content{
+    padding: 2rem;
+}
+
+
+.pnbuttons{
+  margin-left: 40%;
+}
+a {
+    text-decoration: none;
+    display: inline-block;
+    padding: 8px 16px;
+}
+
+a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+.previous {
+    background-color: #f1f1f1;
+    color: black;
+}
+
+.next {
+    background-color: #cd7f32;
+    color: white;
+}
+
+@media only screen and (max-width: 696px){
+
+    .box-container{
+        margin-left: 15%;
+    }
+
+}
+
+
+
+
 
 
 
