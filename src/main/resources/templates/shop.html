@@ -13,8 +13,14 @@
     <link rel="stylesheet" th:href="@{css/style.css}">
 
 
-
     <style>
+        .product img {
+            width: 200px;
+            height: 300px;
+            box-sizing: border-box;
+            object-fit: cover;
+        }
+
         #best-seller > nav > ul > li.page-item.active > a{
             background-color: black;
         }
@@ -27,6 +33,7 @@
             color: #000;
         }
     </style>
+
 
 </head>
 <body>
@@ -63,7 +70,7 @@
 
     <div class="box-container">
         <div th:each="params : ${parameter}" >
-            <a th:href="${'/sbook/' + params.getId() + '/type/' + params.getBookType()}">
+            <a style="text-decoration:none;color: #0f0700"  th:href="${'/sbook/' + params.getId() + '/type/' + params.getBookType()}">
                 <div class="box">
                 <img th:src="${params.getBookImg()}">
                 <div class="content">

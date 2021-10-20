@@ -11,7 +11,7 @@ public class BookEntity {
     private Integer id;
     private String bookName;
     private String authorName;
-    private Integer bookPrice;
+    private Double bookPrice;
     private String aboutBook;
     private String bookImg;
     private String bookType;
@@ -19,7 +19,7 @@ public class BookEntity {
     public BookEntity() {
     }
 
-    public BookEntity(Integer id, String bookName, String authorName, Integer bookPrice, String aboutBook, String bookImg, String bookType) {
+    public BookEntity(Integer id, String bookName, String authorName, Double bookPrice, String aboutBook, String bookImg, String bookType) {
         this.id = id;
         this.bookName = bookName;
         this.authorName = authorName;
@@ -53,11 +53,11 @@ public class BookEntity {
         this.authorName = authorName;
     }
 
-    public Integer getBookPrice() {
+    public Double getBookPrice() {
         return bookPrice;
     }
 
-    public void setBookPrice(Integer bookPrice) {
+    public void setBookPrice(Double bookPrice) {
         this.bookPrice = bookPrice;
     }
 
