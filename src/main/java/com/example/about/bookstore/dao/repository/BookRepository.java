@@ -1,6 +1,7 @@
 package com.example.about.bookstore.dao.repository;
 
 import com.example.about.bookstore.dao.entity.BookEntity;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
@@ -9,10 +10,21 @@ import java.util.Optional;
 
 
 @Repository
-public interface BookRepository extends CrudRepository<BookEntity,Integer>{
+public interface BookRepository extends CrudRepository<BookEntity, Integer> {
     List<BookEntity> findAll();
 
-    Optional<BookEntity> findByBookType(String bookType);
+//    Optional<BookEntity> findByBookType(String bookType);
 
-    //test commit
+    @Query(value = "SELECT * FROM  books.books"
+            + " WHERE book_type= 'Detective'" +
+            "  LIMIT 4 ",
+            nativeQuery = true)
+    List<BookEntity> findByTypeD();
+
+//    @Query(value = "SELECT * FROM  books.books"
+//            + " WHERE book_type= ''" +
+//            "  LIMIT 4 ",
+//            nativeQuery = true)
+//    List<BookEntity> findByTypeD();
+
 }

@@ -26,7 +26,7 @@ public class HomeController {
 
     @GetMapping({ "index"})
     public String index(Model model) {
-        model.addAttribute("parameter", bookService.getBookParams());
+        model.addAttribute("parameter", bookService.getByTypeD());
         return "index";
     }
 
@@ -34,7 +34,7 @@ public class HomeController {
     public String sbook(Model model, @PathVariable Integer bookId ,String bookType) {
         model.addAttribute("book", bookService.findById(bookId));
         model.addAttribute("books", bookService.getBookParams());
-        model.addAttribute("bookByType", bookService.findByType(bookType));
+//        model.addAttribute("bookByType", bookService.findByType(bookType));
         return "sbook";
     }
     @GetMapping({"contact"})

@@ -4,7 +4,7 @@ public class BookDto {
     private Integer id;
     private String bookName;
     private String authorName;
-    private Integer bookPrice;
+    private Double bookPrice;
     private String aboutBook;
     private String bookImg;
     private String bookType;
@@ -13,7 +13,7 @@ public class BookDto {
 
     }
 
-    public BookDto(Integer id, String bookName, String authorName, Integer bookPrice, String aboutBook, String bookImg, String bookType) {
+    public BookDto(Integer id, String bookName, String authorName, Double bookPrice, String aboutBook, String bookImg, String bookType) {
         this.id = id;
         this.bookName = bookName;
         this.authorName = authorName;
@@ -47,11 +47,11 @@ public class BookDto {
         this.authorName = authorName;
     }
 
-    public Integer getBookPrice() {
+    public Double getBookPrice() {
         return bookPrice;
     }
 
-    public void setBookPrice(Integer bookPrice) {
+    public void setBookPrice(Double bookPrice) {
         this.bookPrice = bookPrice;
     }
 

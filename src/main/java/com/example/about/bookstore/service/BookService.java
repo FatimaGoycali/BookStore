@@ -33,8 +33,13 @@ public class BookService {
     public BookEntity findById(Integer id){
         return bookRepository.findById(id).get();
     }
-    public BookEntity findByType(String bookType){
-        return bookRepository.findByBookType(bookType).get();
+//    public BookEntity findByType(String bookType){
+//        return bookRepository.findByBookType(bookType).get();
+//    }
+    public List<BookEntity> getByTypeD(){
+        List<BookEntity> books=
+                bookRepository.findByTypeD();
+        return books;
     }
 }
 
