@@ -152,195 +152,196 @@
         <h3>The Greatest Books of All Time</h3>
         <hr class="mx-auto">
     </div>
-    <ul id="autoWidth" class="cs-hidden">
+    <ul id="autoWidth" class="cs-hidden" >
 
-        <li class="item-a">
-            <div class="box">
-                <div class="slide-img">
-                    <img  src="img/slider1.jpg">
+        <li class="item-a"  >
+            <div class="box"  >
+                <div class="slide-img" th:each="params : ${allbooks}">
+                    <img  th:src="${params.getBookImg()}">
                     <div class="overlay">
                         <a href="#" class="buy-btn">Book Now</a>
                     </div>
                 </div>
-                <div class="detail-box">
+                <div class="detail-box" th:each="parameters : ${allbooks}">
                     <div class="type">
-                        <a href="#">In Search of Lost Time</a>
-                        <span>Marcel Proust</span>
+                        <a href="#" th:text="${parameters.getBookName()}"  />
+                        <span  th:text="${parameters.getAuthorName()}"   />
                     </div>
-                    <a href="#" class="price">$18.74</a>
+                    <a href="#" class="price"  th:text="${parameters.getBookPrice()}" />
+
                 </div>
             </div>
         </li>
 
 
-        <li class="item-a">
-            <div class="box">
-                <div class="slide-img">
-                    <img  src="img/slider2.jpg">
-                    <div class="overlay">
-                        <a href="#" class="buy-btn">Book Now</a>
-                    </div>
-                </div>
-                <div class="detail-box">
-                    <div class="type">
-                        <a href="#">Ulysses</a>
-                        <span>James Joyce</span>
-                    </div>
-                    <a href="#" class="price">$28.54</a>
-                </div>
-            </div>
-        </li>
+<!--        <li class="item-a">-->
+<!--            <div class="box">-->
+<!--                <div class="slide-img">-->
+<!--                    <img  src="img/slider2.jpg">-->
+<!--                    <div class="overlay">-->
+<!--                        <a href="#" class="buy-btn">Book Now</a>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="detail-box">-->
+<!--                    <div class="type">-->
+<!--                        <a href="#">Ulysses</a>-->
+<!--                        <span>James Joyce</span>-->
+<!--                    </div>-->
+<!--                    <a href="#" class="price">$28.54</a>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </li>-->
 
-        <li class="item-a">
-            <div class="box">
-                <div class="slide-img">
-                    <img src="img/slider3.jpg">
-                    <div class="overlay">
-                        <a href="#" class="buy-btn">Book Now</a>
-                    </div>
-                </div>
-                <div class="detail-box">
-                    <div class="type">
-                        <a href="#">Don Quixote </a>
-                        <span>Miguel de Cervantes</span>
-                    </div>
-                    <a href="#" class="price">$28.94</a>
-                </div>
-            </div>
-        </li>
-
-
-        <li class="item-a">
-            <div class="box">
-                <div class="slide-img">
-                    <img  src="img/slider4.jpg">
-                    <div class="overlay">
-                        <a href="#" class="buy-btn">Book Now</a>
-                    </div>
-                </div>
-                <div class="detail-box">
-                    <div class="type">
-                        <a href="#">One Hundred Years Solitude</a>
-                        <span></span>Gabriel Marquez</span>
-                    </div>
-                    <a href="#" class="price">$40.23</a>
-                </div>
-            </div>
-        </li>
+<!--        <li class="item-a">-->
+<!--            <div class="box">-->
+<!--                <div class="slide-img">-->
+<!--                    <img src="img/slider3.jpg">-->
+<!--                    <div class="overlay">-->
+<!--                        <a href="#" class="buy-btn">Book Now</a>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="detail-box">-->
+<!--                    <div class="type">-->
+<!--                        <a href="#">Don Quixote </a>-->
+<!--                        <span>Miguel de Cervantes</span>-->
+<!--                    </div>-->
+<!--                    <a href="#" class="price">$28.94</a>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </li>-->
 
 
-        <li class="item-a">
-            <div class="box">
-                <div class="slide-img">
-                    <img  src="img/slider5.jpg">
-                    <div class="overlay">
-                        <a href="#" class="buy-btn">Book Now</a>
-                    </div>
-                </div>
-                <div class="detail-box">
-                    <div class="type">
-                        <a href="#">The Great Gatsby</a>
-                        <span>F. Scott Fitzgerald</span>
-                    </div>
-                    <a href="#" class="price">$10.97</a>
-                </div>
-            </div>
-        </li>
+<!--        <li class="item-a">-->
+<!--            <div class="box">-->
+<!--                <div class="slide-img">-->
+<!--                    <img  src="img/slider4.jpg">-->
+<!--                    <div class="overlay">-->
+<!--                        <a href="#" class="buy-btn">Book Now</a>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="detail-box">-->
+<!--                    <div class="type">-->
+<!--                        <a href="#">One Hundred Years Solitude</a>-->
+<!--                        <span></span>Gabriel Marquez</span>-->
+<!--                    </div>-->
+<!--                    <a href="#" class="price">$40.23</a>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </li>-->
 
 
-        <li class="item-a">
-            <div class="box">
-                <div class="slide-img">
-                    <img src="img/slider6.jpg">
-                    <div class="overlay">
-                        <a href="#" class="buy-btn">Book Now</a>
-                    </div>
-                </div>
-                <div class="detail-box">
-                    <div class="type">
-                        <a href="#"> Moby Dick</a>
-                        <span>Herman Melvillege</span>
-                    </div>
-                    <a href="#" class="price">$23</a>
-                </div>
-            </div>
-        </li>
+<!--        <li class="item-a">-->
+<!--            <div class="box">-->
+<!--                <div class="slide-img">-->
+<!--                    <img  src="img/slider5.jpg">-->
+<!--                    <div class="overlay">-->
+<!--                        <a href="#" class="buy-btn">Book Now</a>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="detail-box">-->
+<!--                    <div class="type">-->
+<!--                        <a href="#">The Great Gatsby</a>-->
+<!--                        <span>F. Scott Fitzgerald</span>-->
+<!--                    </div>-->
+<!--                    <a href="#" class="price">$10.97</a>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </li>-->
 
 
-        <li class="item-a">
-            <div class="box">
-                <div class="slide-img">
-                    <img  src="img/slider7.jpg">
-                    <div class="overlay">
-                        <a href="#" class="buy-btn">Buy Now</a>
-                    </div>
-                </div>
-                <div class="detail-box">
-                    <div class="type">
-                        <a href="#">War and Peace </a>
-                        <span>Leo Tolstoy</span>
-                    </div>
-                    <a href="#" class="price">$9.90</a>
-                </div>
-            </div>
-        </li>
+<!--        <li class="item-a">-->
+<!--            <div class="box">-->
+<!--                <div class="slide-img">-->
+<!--                    <img src="img/slider6.jpg">-->
+<!--                    <div class="overlay">-->
+<!--                        <a href="#" class="buy-btn">Book Now</a>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="detail-box">-->
+<!--                    <div class="type">-->
+<!--                        <a href="#"> Moby Dick</a>-->
+<!--                        <span>Herman Melvillege</span>-->
+<!--                    </div>-->
+<!--                    <a href="#" class="price">$23</a>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </li>-->
 
 
-        <li class="item-a">
-            <div class="box">
-                <div class="slide-img">
-                    <img  src="img/slider8.jpg">
-                    <div class="overlay">
-                        <a href="#" class="buy-btn">Book Now</a>
-                    </div>
-                </div>
-                <div class="detail-box">
-                    <div class="type">
-                        <a href="#">Hamlet</a>
-                        <span>William Shakespeare</span>
-                    </div>
-                    <a href="#" class="price">$11.99</a>
-                </div>
-            </div>
-        </li>
+<!--        <li class="item-a">-->
+<!--            <div class="box">-->
+<!--                <div class="slide-img">-->
+<!--                    <img  src="img/slider7.jpg">-->
+<!--                    <div class="overlay">-->
+<!--                        <a href="#" class="buy-btn">Buy Now</a>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="detail-box">-->
+<!--                    <div class="type">-->
+<!--                        <a href="#">War and Peace </a>-->
+<!--                        <span>Leo Tolstoy</span>-->
+<!--                    </div>-->
+<!--                    <a href="#" class="price">$9.90</a>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </li>-->
 
 
-        <li class="item-a">
-            <div class="box">
-                <div class="slide-img">
-                    <img src="img/slider9.jpg">
-                    <div class="overlay">
-                        <a href="#" class="buy-btn">Book Now</a>
-                    </div>
-                </div>
-                <div class="detail-box">
-                    <div class="type">
-                        <a href="#">The Odyssey</a>
-                        <span>Homer</span>
-                    </div>
-                    <a href="#" class="price">$33.28</a>
-                </div>
-            </div>
-        </li>
+<!--        <li class="item-a">-->
+<!--            <div class="box">-->
+<!--                <div class="slide-img">-->
+<!--                    <img  src="img/slider8.jpg">-->
+<!--                    <div class="overlay">-->
+<!--                        <a href="#" class="buy-btn">Book Now</a>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="detail-box">-->
+<!--                    <div class="type">-->
+<!--                        <a href="#">Hamlet</a>-->
+<!--                        <span>William Shakespeare</span>-->
+<!--                    </div>-->
+<!--                    <a href="#" class="price">$11.99</a>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </li>-->
 
 
-        <li class="item-a">
-            <div class="box">
-                <div class="slide-img">
-                    <img  src="img/slider10.jpg">
-                    <div class="overlay">
-                        <a href="#" class="buy-btn">Book Now</a>
-                    </div>
-                </div>
-                <div class="detail-box">
-                    <div class="type">
-                        <a href="#">Madame Bovary</a>
-                        <span> Gustave Flaubert</span>
-                    </div>
-                    <a href="#" class="price">$5.95</a>
-                </div>
-            </div>
-        </li>
+<!--        <li class="item-a">-->
+<!--            <div class="box">-->
+<!--                <div class="slide-img">-->
+<!--                    <img src="img/slider9.jpg">-->
+<!--                    <div class="overlay">-->
+<!--                        <a href="#" class="buy-btn">Book Now</a>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="detail-box">-->
+<!--                    <div class="type">-->
+<!--                        <a href="#">The Odyssey</a>-->
+<!--                        <span>Homer</span>-->
+<!--                    </div>-->
+<!--                    <a href="#" class="price">$33.28</a>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </li>-->
+
+
+<!--        <li class="item-a">-->
+<!--            <div class="box">-->
+<!--                <div class="slide-img">-->
+<!--                    <img  src="img/slider10.jpg">-->
+<!--                    <div class="overlay">-->
+<!--                        <a href="#" class="buy-btn">Book Now</a>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="detail-box">-->
+<!--                    <div class="type">-->
+<!--                        <a href="#">Madame Bovary</a>-->
+<!--                        <span> Gustave Flaubert</span>-->
+<!--                    </div>-->
+<!--                    <a href="#" class="price">$5.95</a>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </li>-->
     </ul>
 </section>
 
