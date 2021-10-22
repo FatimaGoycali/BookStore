@@ -41,6 +41,16 @@ public class HomeController {
     public String contact() {
         return "contact";
     }
+
+    @GetMapping({"signIn"})
+    public String signIn() {
+        return "signIn";
+    }
+
+    @GetMapping({"signUp"})
+    public String signUp() {
+        return "signUp";
+    }
     }
 
 
