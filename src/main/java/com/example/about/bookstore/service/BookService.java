@@ -41,6 +41,13 @@ public class BookService {
                 bookRepository.findByTypeD();
         return books;
     }
+    public List<BookEntity> getByDType(){
+        List<BookEntity> books=
+                bookRepository.findByDType();
+        return books;
+    }
+
+
 }
 
 
