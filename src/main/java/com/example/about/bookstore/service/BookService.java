@@ -21,7 +21,6 @@ public class BookService {
         this.bookRepository = bookRepository;
     }
 
-    //null olanda ,price,navbar,crud or jpa rep,
 
     public List<BookDto> getBookParams() {
         return bookRepository.findAll()
@@ -30,20 +29,18 @@ public class BookService {
                 .collect(Collectors.toList());
     }
 
-    public BookEntity findById(Integer id){
+    public BookEntity findById(Integer id) {
         return bookRepository.findById(id).get();
     }
-//    public BookEntity findByType(String bookType){
-//        return bookRepository.findByBookType(bookType).get();
-//    }
-    public List<BookEntity> getByTypeD(){
-        List<BookEntity> books=
+
+    public List<BookEntity> getByTypeD() {
+        List<BookEntity> books =
                 bookRepository.findByTypeD();
         return books;
     }
-    public List<BookEntity> getByDType(){
-        List<BookEntity> books=
-                bookRepository.findByDType();
+
+    public List<BookEntity> getByDType() {
+        List<BookEntity> books = bookRepository.findByDType();
         return books;
     }
 
