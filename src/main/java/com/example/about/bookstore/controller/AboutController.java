@@ -20,7 +20,6 @@ public class AboutController {
             model.addAttribute("parameter", aboutService.getAboutParam());
             return "about";
 
-            //hi guysss
         }
     }
 

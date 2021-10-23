@@ -5,10 +5,12 @@ import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 //
-//@Repository
-//public interface SearchRepository
-//        extends CrudRepository<BookEntity, Integer>, JpaSpecificationExecutor<BookEntity> {
-//
-//    public Iterable<BookEntity> findByNameContainingIgnoreCase(String bookName);
-//}
+@Repository
+public interface SearchRepository
+        extends CrudRepository<BookEntity, Integer>, JpaSpecificationExecutor<BookEntity> {
+
+    List<BookEntity> findByNameContainingIgnoreCase(String bookName);
+}
