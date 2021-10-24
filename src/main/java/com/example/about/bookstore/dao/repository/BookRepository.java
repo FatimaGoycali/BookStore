@@ -27,5 +27,11 @@ public interface BookRepository extends CrudRepository<BookEntity, Integer> {
             nativeQuery = true)
     List<BookEntity> findByDType();
 
+    @Query(value = "SELECT * FROM  books.books"+
+            "  LIMIT 20 ",
+            nativeQuery = true)
+    List<BookEntity> findAllBooks();
+
+
 
 }

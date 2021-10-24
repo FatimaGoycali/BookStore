@@ -43,7 +43,10 @@ public class BookService {
         List<BookEntity> books = bookRepository.findByDType();
         return books;
     }
-
+    public List<BookEntity> getAllBooks() {
+        List<BookEntity> books = bookRepository.findAllBooks();
+        return books;
+    }
 
 }
 
