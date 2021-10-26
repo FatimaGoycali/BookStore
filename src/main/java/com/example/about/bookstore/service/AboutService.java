@@ -14,7 +14,7 @@ public class AboutService {
         this.aboutRepository = aboutRepository;
     }
 
-    public AboutDto getAboutParam() {
+    public Object getAboutParam() {
         return AboutMapper.INSTANCE.mapToDto(aboutRepository.findById(1).get());
     }
 }

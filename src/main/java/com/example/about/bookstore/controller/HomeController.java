@@ -1,9 +1,11 @@
 package com.example.about.bookstore.controller;
 
+//import com.example.about.bookstore.model.dto.UserDto;
 import com.example.about.bookstore.service.BookService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -24,19 +26,18 @@ public class HomeController {
     }
 
 
-    @GetMapping({"index"})
-    public String index(Model model) {
-        model.addAttribute("parameter", bookService.getByTypeD());
-        model.addAttribute("allbooks", bookService.getBookParams());
-        return "index";
-    }
+//    @GetMapping({"index"})
+//    public String index(Model model) {
+//        model.addAttribute("Dparameter", bookService.getByTypeD());
+//        model.addAttribute("Bparameter", bookService.getByTypeB());
+//        model.addAttribute("allbooks", bookService.getBookParams());
+//        return "index";
+//    }
 
     @GetMapping("sbook/{bookId}/type/{bookType}")
     public String sbook(Model model, @PathVariable Integer bookId, String bookType) {
         model.addAttribute("book", bookService.findById(bookId));
         model.addAttribute("books", bookService.getBookParams());
-        model.addAttribute("sbooks", bookService.getByDType());
-//        model.addAttribute("bookByType", bookService.findByType(bookType));
         return "sbook";
     }
 
@@ -44,6 +45,8 @@ public class HomeController {
     public String contact() {
         return "contact";
     }
+
+
 }
 
 
