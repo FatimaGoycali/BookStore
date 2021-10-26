@@ -1,4 +1,5 @@
 package com.example.about.bookstore.model.dto;
+
 public class ContactDto {
     private String firstName;
     private String lastName;

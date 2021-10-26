@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link rel="stylesheet" th:href="@{/css/login.css}">
+</head>
+<body>
+
+
+<nav th:replace="navbar :: navbar"></nav>
+
+<div class="login">
+    <section class="signup">
+    <div class="container">
+
+        <div class="signup-content">
+            <div class="signup-form">
+                <h2 class="form-title">Sign up</h2>
+                <form method="post" th:action="@{/signUp}" th:object="${userDto}" class="register-form" id="register-form">
+                    <div class="form-group">
+                        <label for="name"><i class="fas fa-user"></i></label>
+                        <input type="text" name="userName" id="name" th:field="*{userName}" th:errorClass="error" placeholder="Your Name"/>
+                        <div th:if="${#fields.hasErrors('userName')}" th:errors="*{userName}" class="invalid-feedback"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email"><i class="fas fa-envelope"></i></label>
+                        <input type="email" name="email" id="email" th:value="*{email}" th:errorclass="fieldError" placeholder="Your Email"/>
+                        <div th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="invalid-feedback"></div>
+
+                    </div>
+                    <div class="form-group">
+                        <label for="pass"><i class="fas fa-lock"></i></label>
+                        <input type="password" name="password" id="pass" th:value="*{password}" th:errorclass="fieldError" placeholder="Password"/>
+                        <div th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class="invalid-feedback"></div>
+
+                    </div>
+                    <div class="form-group">
+                        <label for="re_pass"><i class="far fa-lock"></i></label>
+                        <input type="password" name="rpassword" id="re_pass" th:value="*{rpassword}" th:errorclass="fieldError" placeholder="Repeat your password"/>
+                        <div th:if="${#fields.hasErrors('rpassword')}" th:errors="*{rpassword}" class="invalid-feedback"></div>
+
+                    </div>
+                    <div class="form-group">
+                        <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" />
+                        <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree all statements in  <a href="#" class="term-service">Terms of service</a></label>
+                    </div>
+                    <div class="form-group form-button">
+                        <input type="submit" name="signup" id="signup" class="form-submit" value="Register"/>
+                    </div>
+                </form>
+                <p class="py-2">Already have an account? <a href="/signIn">Sign-in</a> </p>
+            </div>
+            <div class="signup-image">
+                <figure> <img th:src="@{/img/signup-image.jpg}" alt="image"></figure>
+            </div>
+        </div>
+    </div>
+</section>
+</div>
+
+<div th:replace="footer :: footer"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
+</body>
+</html>
