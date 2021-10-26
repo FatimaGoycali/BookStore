@@ -67,9 +67,12 @@
     <hr class="mx-auto">
   </div>
 
-  <div class="row mx-auto container-fluid" >
 
-    <div class="product text-center col-lg-3 col-md-4 col-12" th:each="params : ${sbooks}">
+<!--  each limit size??-->
+  <div class="row mx-auto container-fluid" >
+    <div class="product text-center col-lg-3 col-md-4 col-12" th:each="params : ${books}" th:if="${params.getBookType()} == ${book.getBookType}" >
+<!--      <div th:text="${iterator.index+1}"></div>-->
+<!--      th:unless="${iterator.index > 2 }"-->
       <a style="text-decoration:none;color: #0f0700"  th:href="${'/sbook/' + params.getId() + '/type/' + params.getBookType()}">
         <img th:src="${params.getBookImg()}">
         <div class="star">
