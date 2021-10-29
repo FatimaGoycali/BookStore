@@ -21,15 +21,17 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto">
 
-                <form class="form-inline" >
+                <form class="form-inline"  th:action="@{/search}" method="get">
                     <i class="fas fa-search" aria-hidden="true"></i>
-                    <input class="form-control form-control-sm ml-3 w-75" type="text" name="bookName" placeholder="Search"
+                    <input class="form-control form-control-sm ml-3 w-75" type="search" value=""  id="search" onkeydown="dropDown(event);" data-toggle="dropdown" placeholder="Search"
                            aria-label="Search">
+                    <div class="dropdown-menu ropdown-menu-right ml-4"
+                         id="dropdown-container"></div>
                 </form>
                 <li class="nav-item" th:classappend="${module == 'index' ? 'active' : ''}">
                     <a class="nav-link "  th:href="@{/index}" >Home</a>
                 </li>
-                <li class="nav-item"th:classappend="${module == 'shop' ? 'active' : ''}">
+                <li class="nav-item" th:classappend="${module == 'shop' ? 'active' : ''}">
                     <a class="nav-link " th:href="@{/shop}" >Shop</a>
                 </li>
                 <li class="nav-item dropdown">
@@ -59,13 +61,46 @@
                     <a class="nav-link" th:href="@{/showMyLoginPage}">Login</a>
                 </li>
 
-                <li class="nav-item"></li>
+                <li class="nav-item" th:classappend="${module == 'shoppingCart' ? 'active' : ''}" >
+                    <a class="nav-link" th:href="@{/shoppingCart}">
+                        <i class="fas fa-shopping-bag" > </i>
+                    </a>
 
-                <i class="fas fa-shopping-bag"></i>
+
+                </li>
+
+
             </ul>
         </div>
     </div>
 </nav>
 </div>
+
+<script>
+    function  dropDown(event){
+        var val=$("#search").val();
+        if(val.length>1){
+            $.ajax(
+                {
+                    url: '/search?value='+val,
+                    type: 'GET',  // http method
+                    processData: false,
+                    cache:false,
+                    contentType: false,
+                    timeout:6000,
+                    success: function (data) {
+                        $(".dropdown-toggle").dropdown();
+                       $("#dropdown-container").empty();
+                       $("#dropdown-container").append(data);
+
+                    },
+                    error:function (e){
+                        console.log("Error "+ e);
+                    }
+                }
+            );
+        }
+    }
+</script>
 </body>
 </html>
