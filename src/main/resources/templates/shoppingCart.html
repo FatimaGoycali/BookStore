@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8">
@@ -12,7 +12,7 @@
 <div class="CartContainer">
     <div class="Header">
         <h3 class="Heading">Shopping Cart</h3>
-        <h5 class="Action">Remove all</h5>
+        <h5 class="Action" th:href="@{/clearShoppingCart}" >Remove all</h5>
     </div>
 
     <div class="Cart-Items" th:each="cartItem : ${shoppingCart.items}" >
@@ -31,7 +31,7 @@
         <div class="prices">
             <div class="amount" th:text = "${cartItem.getBookEntity().getBookPrice()}"></div>
             <div class="save"><u>Save for later</u></div>
-            <div class="remove"><u>Remove</u></div>
+            <div class="remove" th:href="@{/removeCartItem/{id}(id = ${cartItem.id})}" ><u>Remove</u> </div>
         </div>
     </div>
 
@@ -41,9 +41,9 @@
         <div class="total">
             <div>
                 <div class="Subtotal">Sub-Total</div>
-                <div class="items">2 items</div>
+                <div class="items" th:text="${shoppingCart.getItemsNumber()}"  ></div>
             </div>
-            <div class="total-amount"></div>
+            <div class="total-amount" th:text="${shoppingCart.getTotalPrice()}"></div>
         </div>
         <button class="button">Checkout</button></div>
 </div>
