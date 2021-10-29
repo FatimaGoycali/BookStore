@@ -1,7 +1,7 @@
 package com.example.about.bookstore.dao.entity;
 
 import javax.persistence.*;
-import java.util.Set;
+import java.util.Collection;
 
 @Entity
 @Table(schema = "login", name = "user")
@@ -16,62 +16,70 @@ public class User {
     private String email;
     @Column(name = "password")
     private String password;
-    @Column(name = "rpassword")
-    private String rpassword;
 
-    @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(schema = "login",name = "user_roles",joinColumns = @JoinColumn(name = "auth_user_id")
-            ,inverseJoinColumns = @JoinColumn(name = "auth_role_id"))
-    private Set<Role> roles;
+	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JoinTable( schema = "login",name = "auth_user_roles",
+			joinColumns = @JoinColumn(name = "user_id"),
+			inverseJoinColumns = @JoinColumn(name = "role_id"))
+	private Collection<Role> roles;
 
-    public User() {
-    }
+	public User() {
+	}
 
-    public User(Long userId, String userName, String email, String password, String rpassword) {
-        this.userId = userId;
-        this.userName = userName;
-        this.email = email;
-        this.password = password;
-        this.rpassword = rpassword;
-    }
+	public User(Long userId, String userName, String email, String password) {
+		this.userId = userId;
+		this.userName = userName;
+		this.email = email;
+		this.password = password;
+	}
 
-    public Long getUserId() {
-        return userId;
-    }
+	public User(Long userId, String userName, String email, String password,  Collection<Role> roles) {
+		this.userId = userId;
+		this.userName = userName;
+		this.email = email;
+		this.password = password;
 
-    public void setUserId(Long userId) {
-        this.userId = userId;
-    }
+		this.roles = roles;
+	}
 
-    public String getUserName() {
-        return userName;
-    }
+	public Long getUserId() {
+		return userId;
+	}
 
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
+	public void setUserId(Long userId) {
+		this.userId = userId;
+	}
 
-    public String getEmail() {
-        return email;
-    }
+	public String getUserName() {
+		return userName;
+	}
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
 
-    public String getPassword() {
-        return password;
-    }
+	public String getEmail() {
+		return email;
+	}
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
+	public void setEmail(String email) {
+		this.email = email;
+	}
 
-    public String getRpassword() {
-        return rpassword;
-    }
+	public String getPassword() {
+		return password;
+	}
 
-    public void setRpassword(String rpassword) {
-        this.rpassword = rpassword;
-    }
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+
+	public Collection<Role> getRoles() {
+		return roles;
+	}
+
+	public void setRoles(Collection<Role> roles) {
+		this.roles = roles;
+	}
 }

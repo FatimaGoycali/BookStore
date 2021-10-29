@@ -5,26 +5,42 @@ import javax.persistence.*;
 @Entity
 @Table(schema = "login",name = "role")
 public class Role {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "role_id")
-    private Long roleId;
-    @Column(name = "role_name")
-    private String roleName;
 
-    public Long getRoleId() {
-        return roleId;
-    }
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long roleId;
 
-    public void setRoleId(Long roleId) {
-        this.roleId = roleId;
-    }
+	@Column(name = "role_name")
+	private String name;
 
-    public String getRoleName() {
-        return roleName;
-    }
+	public Role() {
+	}
 
-    public void setRoleName(String roleName) {
-        this.roleName = roleName;
-    }
+	public Role(String name) {
+		this.name = name;
+	}
+
+	public Long getRoleId() {
+		return roleId;
+	}
+
+	public void setRoleId(Long roleId) {
+		this.roleId = roleId;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	@Override
+	public String toString() {
+		return "Role{" +
+				"roleId=" + roleId +
+				", name='" + name + '\'' +
+				'}';
+	}
 }
