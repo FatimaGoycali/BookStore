@@ -2,13 +2,11 @@ package com.example.about.bookstore.service;
 
 import com.example.about.bookstore.dao.entity.BookEntity;
 import com.example.about.bookstore.dao.repository.BookRepository;
-import com.example.about.bookstore.mapper.AboutMapper;
 import com.example.about.bookstore.mapper.BookMapper;
-import com.example.about.bookstore.model.dto.AboutDto;
 import com.example.about.bookstore.model.dto.BookDto;
 import org.springframework.stereotype.Service;
 import java.util.List;
-import java.util.Optional;
+
 import java.util.stream.Collectors;
 
 @Service
@@ -59,6 +57,9 @@ public class BookService {
         return books;
     }
 
+    public BookEntity getBookParams(Long id) {
+        return bookRepository.findById(Math.toIntExact(id)).get();
+    }
 }
 
 
