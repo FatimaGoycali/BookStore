@@ -35,6 +35,7 @@ public class UserServiceImpl implements UserService {
 	@Transactional
 	public User findByUserName(String userName) {
 		// check the database if the user already exists
+		System.out.println("userName: " + userName);
 		return userDao.findByUserName(userName);
 	}
 
@@ -46,9 +47,6 @@ public class UserServiceImpl implements UserService {
 		user.setUserName(crmUser.getUserName());
 		user.setPassword(passwordEncoder.encode(crmUser.getPassword()));
 		user.setEmail(crmUser.getEmail());
-
-
-
 		 // save user in the database
 		userDao.save(user);
 	}

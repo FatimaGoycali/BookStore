@@ -1,24 +1,28 @@
 package com.example.about.bookstore.dao.entity;
 
+
 import javax.persistence.*;
 import java.util.Collection;
 
 @Entity
-@Table(schema = "login", name = "user")
+@Table( schema = "login",name = "users")
 public class User {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "user_id")
-    private Long userId;
-    @Column(name = "user_name")
-    private String userName;
-    @Column(name = "email")
-    private String email;
-    @Column(name = "password")
-    private String password;
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+
+	@Column(name = "username")
+	private String userName;
+
+	@Column(name = "password")
+	private String password;
+
+	@Column(name = "email")
+	private String email;
 
 	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	@JoinTable( schema = "login",name = "auth_user_roles",
+	@JoinTable(schema = "login",name = "users_roles",
 			joinColumns = @JoinColumn(name = "user_id"),
 			inverseJoinColumns = @JoinColumn(name = "role_id"))
 	private Collection<Role> roles;
@@ -26,28 +30,26 @@ public class User {
 	public User() {
 	}
 
-	public User(Long userId, String userName, String email, String password) {
-		this.userId = userId;
+	public User(String userName, String password, String email) {
 		this.userName = userName;
-		this.email = email;
 		this.password = password;
+
+		this.email = email;
 	}
 
-	public User(Long userId, String userName, String email, String password,  Collection<Role> roles) {
-		this.userId = userId;
+	public User(String userName, String password, String email, Collection<Role> roles) {
 		this.userName = userName;
-		this.email = email;
 		this.password = password;
-
+		this.email = email;
 		this.roles = roles;
 	}
 
-	public Long getUserId() {
-		return userId;
+	public Long getId() {
+		return id;
 	}
 
-	public void setUserId(Long userId) {
-		this.userId = userId;
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public String getUserName() {
@@ -58,14 +60,6 @@ public class User {
 		this.userName = userName;
 	}
 
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
 	public String getPassword() {
 		return password;
 	}
@@ -74,6 +68,13 @@ public class User {
 		this.password = password;
 	}
 
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
 
 	public Collection<Role> getRoles() {
 		return roles;
@@ -81,5 +82,16 @@ public class User {
 
 	public void setRoles(Collection<Role> roles) {
 		this.roles = roles;
+	}
+
+	@Override
+	public String toString() {
+		return "User{" +
+				"id=" + id +
+				", userName='" + userName + '\'' +
+				", password='" + password + '\'' +
+				", email='" + email + '\'' +
+				", roles=" + roles +
+				'}';
 	}
 }

@@ -1,6 +1,11 @@
 package com.example.about.bookstore.dao.entity;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
 @Table(schema = "login",name = "role")
@@ -8,9 +13,9 @@ public class Role {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long roleId;
+	private Long id;
 
-	@Column(name = "role_name")
+	@Column(name = "name")
 	private String name;
 
 	public Role() {
@@ -20,12 +25,12 @@ public class Role {
 		this.name = name;
 	}
 
-	public Long getRoleId() {
-		return roleId;
+	public Long getId() {
+		return id;
 	}
 
-	public void setRoleId(Long roleId) {
-		this.roleId = roleId;
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public String getName() {
@@ -38,9 +43,6 @@ public class Role {
 
 	@Override
 	public String toString() {
-		return "Role{" +
-				"roleId=" + roleId +
-				", name='" + name + '\'' +
-				'}';
+		return "Role{" + "id=" + id + ", name='" + name + '\'' + '}';
 	}
 }

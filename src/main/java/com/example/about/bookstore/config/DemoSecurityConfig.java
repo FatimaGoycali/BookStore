@@ -31,17 +31,18 @@ public class DemoSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
 
         http.authorizeRequests()
-                .antMatchers("/", "/index", "/signIn", "/about", "/sbook/{bookId}/type/{bookType}", "/shop", "/signUp", "/contact", "/navbar", "/footer").permitAll()
-                .antMatchers("/").hasRole("USER")
-                .antMatchers("/systems/**").hasRole("ADMIN")
+                .antMatchers("/index").permitAll()
+                .antMatchers("/shop").hasRole("USER")
+//                .antMatchers("/leaders/**").hasRole("MANAGER")
+//                .antMatchers("/systems/**").hasRole("ADMIN")
                 .and()
                 .formLogin()
-                .loginPage("/signIn").permitAll()
+                .loginPage("/showMyLoginPage")
                 .loginProcessingUrl("/authenticateTheUser")
                 .successHandler(customAuthenticationSuccessHandler)
                 .permitAll()
                 .and()
-                .logout().logoutUrl("/logout")
+                .logout().permitAll()
                 .and()
                 .exceptionHandling().accessDeniedPage("/access-denied");
 
