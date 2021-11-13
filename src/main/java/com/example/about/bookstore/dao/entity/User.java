@@ -1,77 +1,97 @@
 package com.example.about.bookstore.dao.entity;
 
+
 import javax.persistence.*;
-import java.util.Set;
+import java.util.Collection;
 
 @Entity
-@Table(schema = "login", name = "user")
+@Table( schema = "login",name = "users")
 public class User {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "user_id")
-    private Long userId;
-    @Column(name = "user_name")
-    private String userName;
-    @Column(name = "email")
-    private String email;
-    @Column(name = "password")
-    private String password;
-    @Column(name = "rpassword")
-    private String rpassword;
 
-    @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(schema = "login",name = "user_roles",joinColumns = @JoinColumn(name = "auth_user_id")
-            ,inverseJoinColumns = @JoinColumn(name = "auth_role_id"))
-    private Set<Role> roles;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 
-    public User() {
-    }
+	@Column(name = "username")
+	private String userName;
 
-    public User(Long userId, String userName, String email, String password, String rpassword) {
-        this.userId = userId;
-        this.userName = userName;
-        this.email = email;
-        this.password = password;
-        this.rpassword = rpassword;
-    }
+	@Column(name = "password")
+	private String password;
 
-    public Long getUserId() {
-        return userId;
-    }
+	@Column(name = "email")
+	private String email;
 
-    public void setUserId(Long userId) {
-        this.userId = userId;
-    }
+	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JoinTable(schema = "login",name = "users_roles",
+			joinColumns = @JoinColumn(name = "user_id"),
+			inverseJoinColumns = @JoinColumn(name = "role_id"))
+	private Collection<Role> roles;
 
-    public String getUserName() {
-        return userName;
-    }
+	public User() {
+	}
 
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
+	public User(String userName, String password, String email) {
+		this.userName = userName;
+		this.password = password;
 
-    public String getEmail() {
-        return email;
-    }
+		this.email = email;
+	}
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
+	public User(String userName, String password, String email, Collection<Role> roles) {
+		this.userName = userName;
+		this.password = password;
+		this.email = email;
+		this.roles = roles;
+	}
 
-    public String getPassword() {
-        return password;
-    }
+	public Long getId() {
+		return id;
+	}
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-    public String getRpassword() {
-        return rpassword;
-    }
+	public String getUserName() {
+		return userName;
+	}
 
-    public void setRpassword(String rpassword) {
-        this.rpassword = rpassword;
-    }
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public Collection<Role> getRoles() {
+		return roles;
+	}
+
+	public void setRoles(Collection<Role> roles) {
+		this.roles = roles;
+	}
+
+	@Override
+	public String toString() {
+		return "User{" +
+				"id=" + id +
+				", userName='" + userName + '\'' +
+				", password='" + password + '\'' +
+				", email='" + email + '\'' +
+				", roles=" + roles +
+				'}';
+	}
 }

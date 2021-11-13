@@ -24,15 +24,21 @@ public class HomeController {
         return "shop";
 
     }
+    @GetMapping("/index")
+    public String showHome(Model model) {
+        model.addAttribute("Dparameter", bookService.getByTypeD());
+        model.addAttribute("Bparameter", bookService.getByTypeB());
+        model.addAttribute("allbooks", bookService.getBookParams());
+        return "index";
+    }
 
 
-//    @GetMapping({"index"})
-//    public String index(Model model) {
-//        model.addAttribute("Dparameter", bookService.getByTypeD());
-//        model.addAttribute("Bparameter", bookService.getByTypeB());
-//        model.addAttribute("allbooks", bookService.getBookParams());
-//        return "index";
-//    }
+    @GetMapping("/systems")
+    public String showSystems() {
+
+        return "systems";
+    }
+
 
     @GetMapping("sbook/{bookId}/type/{bookType}")
     public String sbook(Model model, @PathVariable Integer bookId, String bookType) {

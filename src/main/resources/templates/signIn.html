@@ -7,8 +7,10 @@
     <link rel="stylesheet" th:href="@{/css/style.css}">
     <link rel="stylesheet" th:href="@{/css/login.css}">
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+          integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
 
 
 </head>
@@ -21,38 +23,65 @@
             <div class="signin-content">
                 <div class="signin-image">
                     <figure><img th:src="@{/img/signin-image.jpg}" alt="image"></figure>
-                    <a href="/signUp" class="signup-image-link">Create an account</a>
+                    <a th:href="@{/signUp/showRegistrationForm}" class="signup-image-link" aria-pressed="true">Register
+                        New User</a>
                 </div>
 
                 <div class="signin-form">
                     <h2 class="form-title">Sign In</h2>
-                    <form method="POST" class="register-form" id="login-form">
+                    <form th:action="@{/authenticateTheUser}" method="POST" class="register-form" id="login-form">
+
                         <div class="form-group">
-                            <label for="email"><i class="fas fa-envelope"></i></label>
-                            <input type="email" name="email" id="email"  placeholder="Your Email"/>
+                            <div class="col-xs-15">
+                                <div>
+                                    <!-- Check for login error -->
+                                    <div th:if="${param.error}" class="alert alert-danger col-xs-offset-1 col-xs-10">
+                                        Invalid username and password.
+                                    </div>
+
+                                    <!-- Check for logout -->
+                                    <div th:if="${param.logout}" class="alert alert-success col-xs-offset-1 col-xs-10">
+                                        You have been logged out.
+                                    </div>
+
+                                </div>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label for="your_pass"><i class="fas fa-lock"></i></label>
-                            <input type="password" name="your_pass" id="your_pass" placeholder="Password"/>
+
+
+                        <!-- User name -->
+                        <div style="margin-bottom: 25px" class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+
+                            <input type="text" name="username" placeholder="username" class="form-control">
                         </div>
-                        <div class="form-group">
-                            <input type="checkbox" name="remember-me" id="remember-me" class="agree-term" />
-                            <label for="remember-me" class="label-agree-term"><span><span></span></span>Remember me</label>
+
+                        <!-- Password -->
+                        <div style="margin-bottom: 25px" class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+
+                            <input type="password" name="password" placeholder="password" class="form-control" >
                         </div>
-                        <div class="form-group form-button">
-                            <input type="submit" name="signin" id="signin" class="form-submit" value="Log in"/>
+
+                        <!-- Login/Submit Button -->
+                        <div style="margin-top: 10px" class="form-group">
+                            <div class="col-sm-6 controls">
+                                <button type="submit" class="btn btn-success">Login</button>
+                            </div>
                         </div>
                     </form>
-<!--                    <div class="social-login">-->
-<!--                        <span class="social-label">Or login with</span>-->
-<!--                        <ul class="socials">-->
-<!--                            <li><a href="#"><i class="display-flex-center zmdi zmdi-facebook"></i></a></li>-->
-<!--                            <li><a href="#"><i class="display-flex-center zmdi zmdi-twitter"></i></a></li>-->
-<!--                            <li><a href="#"><i class="display-flex-center zmdi zmdi-google"></i></a></li>-->
-<!--                        </ul>-->
-<!--                    </div>-->
+                    <!--                    <div class="social-login">-->
+                    <!--                        <span class="social-label">Or login with</span>-->
+                    <!--                        <ul class="socials">-->
+                    <!--                            <li><a href="#"><i class="display-flex-center zmdi zmdi-facebook"></i></a></li>-->
+                    <!--                            <li><a href="#"><i class="display-flex-center zmdi zmdi-twitter"></i></a></li>-->
+                    <!--                            <li><a href="#"><i class="display-flex-center zmdi zmdi-google"></i></a></li>-->
+                    <!--                        </ul>-->
+                    <!--                    </div>-->
                 </div>
             </div>
+
+
         </div>
     </section>
 
@@ -60,7 +89,11 @@
 
 <div th:replace="footer :: footer"></div>
 
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"
+        integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js"
+        integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/"
+        crossorigin="anonymous"></script>
 </body>
 </html>
