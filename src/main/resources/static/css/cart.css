@@ -1,8 +1,10 @@
+
+
 body{
     margin: 0;
     padding: 0;
     background: linear-gradient(to bottom right, #E3F0FF, #FAFCFF);
-    height: 100vh;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -10,7 +12,7 @@ body{
 
 .CartContainer{
     width: 70%;
-    height: 90%;
+    height: 100%;
     background-color: #ffffff;
     border-radius: 20px;
     box-shadow: 0px 10px 20px #1687d933;
@@ -50,17 +52,18 @@ body{
     align-items: center;
 }
 .image-box{
-    width: 15%;
+    width: 30%;
     text-align: center;
 }
 .about{
     height: 100%;
-    width: 24%;
+     width: 60%;
+    font-size: 30px;
 }
 .title{
     padding-top: 10px;
     line-height: 10px;
-    font-size: 32px;
+    font-size: 20px;
     font-family: 'Open Sans';
     font-weight: 800;
     color: #202020;
@@ -73,12 +76,7 @@ body{
     color: #909090;
 }
 
-.counter{
-    width: 15%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
+
 .btn{
     width: 40px;
     height: 40px;
@@ -126,6 +124,7 @@ body{
     font-weight: 600;
     color: #E44C4C;
     cursor: pointer;
+    text-decoration: none;
 }
 
 .pad{
@@ -178,4 +177,10 @@ hr{
     font-family: 'Open Sans';
     font-weight: 600;
     color: #202020;
+}
+#cshop{
+
+    text-decoration: none;
+    font-size:20px;
+    color:black;
 }
