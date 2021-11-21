@@ -33,13 +33,6 @@ public class HomeController {
     }
 
 
-    @GetMapping("/systems")
-    public String showSystems() {
-
-        return "systems";
-    }
-
-
     @GetMapping("sbook/{bookId}/type/{bookType}")
     public String sbook(Model model, @PathVariable Integer bookId, String bookType) {
         model.addAttribute("book", bookService.findById(bookId));
