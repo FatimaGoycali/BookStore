@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{css/cart.css}">
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,900" rel="stylesheet">
+</head>
+<body>
+
+<div class="CartContainer">
+    <div class="Header">
+        <h3 class="Heading">Shopping Cart</h3>
+        <h5 class="Action" th:href="@{/clearShoppingCart}" >Remove all</h5>
+    </div>
+    <form method="post" th:action="${'/cart/update'}">
+    <div class="Cart-Items" th:each="item : ${session.cart}" >
+        <div class="image-box">
+            <img th:src="${item.getBookEntity().getBookImg()}" style="height: 120px"  alt=""/>
+        </div>
+        <div class="about">
+            <h1 class="title" th:text="${item.getBookEntity().getBookName()}"></h1>
+
+        </div>
+        <input type="number" th:value="${item.getQuantity()}" name="quantity"  min="1"  style="width: 50px;">
+        <input type="submit" value="Submit" />
+        <div class="prices">
+            <div class="amount" th:text = "${item.getBookEntity().getBookPrice()}"></div>
+       <a class="remove" th:href="${'cart/remove/'+ item.getBookEntity().getId()}"> Remove </a>
+
+        </div>
+    </div>
+    </form>
+
+    <hr>
+    <div class="checkout" >
+        <div class="total" th:each="item : ${session.cart}" >
+            <div>
+                <div class="Subtotal">Sub-Total</div>
+                <div class="items" th:text="${item.getQuantity()}"  ></div>
+
+            </div>
+            <div class="total-amount" th:text="${item.getBookEntity().getBookPrice() * item.getQuantity()}"></div>
+        </div>
+
+        <a style="text-align: left"  id="cshop" th:href="${'/shop'}">Continue Shopping</a>
+        <div th:text="${total}"> Total</div>
+        <button class="button">Checkout</button></div>
+</div>
+
+</body>
+</html>
