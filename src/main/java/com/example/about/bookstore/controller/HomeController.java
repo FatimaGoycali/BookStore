@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
+@RequestMapping("/")
 public class HomeController {
     private BookService bookService;
 
@@ -17,7 +18,7 @@ public class HomeController {
         this.bookService = bookService;
     }
 
-    @GetMapping({"/shop"})
+    @GetMapping({"shop"})
     public String shop(Model model) {
         model.addAttribute("parameter", bookService.getBookParams());
         return "shop";
@@ -32,17 +33,21 @@ public class HomeController {
     }
 
 
+    @GetMapping("/systems")
+    public String showSystems() {
+
+        return "systems";
+    }
 
 
-
-    @GetMapping("/sbook/{bookId}/type/{bookType}")
+    @GetMapping("sbook/{bookId}/type/{bookType}")
     public String sbook(Model model, @PathVariable Integer bookId, String bookType) {
         model.addAttribute("book", bookService.findById(bookId));
         model.addAttribute("books", bookService.getBookParams());
         return "sbook";
     }
 
-    @GetMapping({"/contact"})
+    @GetMapping({"contact"})
     public String contact() {
         return "contact";
     }

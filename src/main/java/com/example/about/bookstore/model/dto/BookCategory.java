@@ -4,5 +4,5 @@
 //    Arts
 //    Biographies
 //            Business
-//    Comics ,Science, History,s
+//    Comics ,Science, History,
 //    Horror, Kids, Fiction ,Mystery ,Romance ,Fantasy}

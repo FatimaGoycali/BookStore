@@ -50,10 +50,12 @@
       <h3 th:text = "${book.getAuthorName()}"></h3>
       <h5 th:text = "${book.getBookType()}"></h5>
       <h4 th:text = "${book.getBookPrice()}" ></h4>
-      <form action="/addToCart" method="post">
-        <input type="hidden" name="id"  th:value="${book.id}"/>
+      <form >
+        <input type="hidden" name="id"  th:value="${book.getId()}"/>
         <input type="number"  min="1" value="1" name="quantity">
-        <button class="buy-btn">Add To Card</button>
+          <a th:href="${'/cart/buy/'+ book.getId()}" >Add To Card</a>
+
+
       </form>
 
       <h4 class="mt-5 mb-5">About The Book</h4>
