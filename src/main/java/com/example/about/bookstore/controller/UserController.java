@@ -46,7 +46,7 @@ public class UserController {
 
         securityService.autoLogin(userForm.getUsername(), userForm.getPasswordConfirm());
 
-        return "redirect:/welcome";
+        return "redirect:/";
     }
 
     @GetMapping("/login")
@@ -59,7 +59,7 @@ public class UserController {
             model.addAttribute("error", "Your username and password is invalid.");
 
         if (logout != null)
-            model.addAttribute("message", "AA You have been logged out successfully.");
+            model.addAttribute("message", "You have been logged out successfully.");
 
         return "login";
     }

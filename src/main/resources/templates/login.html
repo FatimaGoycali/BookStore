@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link rel="stylesheet" th:href="@{/css/style.css}">
+  <link rel="stylesheet" th:href="@{/css/login.css}">
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+
+
+</head>
+<body>
+<nav th:replace="navbar :: navbar"></nav>
+
+<div class="login">
+  <section class="sign-in">
+    <div class="container">
+      <form class="form-signin" method="POST" th:action="@{/login}">
+
+        <div class="signin-content">
+          <div class="signin-image">
+            <figure><img th:src="@{/img/signin-image.jpg}" alt="image"></figure>
+            <a th:href="@{/registration}" class="signup-image-link" aria-pressed="true">Create an account</a>
+          </div>
+
+          <div class="signin-form">
+            <h2 class="form-title">Sign In</h2>
+            <div class="form-group">
+
+              <span th:text="${message}"></span>
+
+              <div style="margin-bottom: 25px" class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                <input name="username" type="text" class="form-control" placeholder="Username"
+                       autofocus="true"/>
+              </div>
+              <div style="margin-bottom: 25px" class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                <input name="password" type="password" class="form-control" placeholder="Password"/>
+
+              </div>
+
+              <span class="has-error" th:text="${error}"></span>
+
+              <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+
+              <div class="form-group form-button">
+                <input type="submit" name="signup" id="signup" class="form-submit" value="Login"/>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </form>
+    </div>
+  </section>
+</div>
+
+<div th:replace="footer :: footer"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"
+        integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js"
+        integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/"
+        crossorigin="anonymous"></script>
+</body>
+</html>
