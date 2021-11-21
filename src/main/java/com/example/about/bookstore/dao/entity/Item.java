@@ -25,14 +25,14 @@ public class Item {
         this.bookEntity = bookEntity;
         this.quantity = quantity;
     }
-
-    public Item() {
-    }
-        public Double getTotalPrice() {
-        Double sum = 0.0;
-        for(Item item : this.item) {
-            sum = sum + item.getBookEntity().getBookPrice()*item.getQuantity();
-        }
-        return sum;
-    }
+//
+//    public Item() {
+//    }
+//        public Double getTotalPrice() {
+//        Double sum = 0.0;
+//        for(Item item : this.item) {
+//            sum = sum + item.getBookEntity().getBookPrice()*item.getQuantity();
+//        }
+//        return sum;
+//    }
 }
