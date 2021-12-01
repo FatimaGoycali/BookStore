@@ -3,7 +3,8 @@
 body{
     margin: 0;
     padding: 0;
-    background: linear-gradient(to bottom right, #E3F0FF, #FAFCFF);
+
+    background: #ecb568;
     height: 100%;
     display: flex;
     justify-content: center;
@@ -28,10 +29,10 @@ body{
 }
 
 .Heading{
-    font-size: 20px;
+    font-size: 24px;
     font-family: 'Open Sans';
     font-weight: 700;
-    color: #2F3841;
+    color: #96531d;
 }
 
 .Action{
@@ -41,6 +42,7 @@ body{
     color: #E44C4C;
     cursor: pointer;
     border-bottom: 1px solid #E44C4C;
+    text-decoration: none;
 }
 
 .Cart-Items{
@@ -106,7 +108,7 @@ body{
     padding-top: 20px;
     font-size: 26px;
     font-family: 'Open Sans';
-    font-weight: 800;
+    font-weight: 600;
     color: #202020;
 }
 .save{
@@ -134,7 +136,7 @@ body{
 hr{
     width: 66%;
     float: right;
-    margin-right: 5%;
+   margin-right: 5%;
 }
 .checkout{
     float: right;
@@ -147,20 +149,20 @@ hr{
     justify-content: space-between;
 }
 .Subtotal{
-    font-size: 22px;
+    font-size: 20px;
     font-family: 'Open Sans';
     font-weight: 700;
     color: #202020;
 }
 .items{
-    font-size: 16px;
+    font-size: 14px;
     font-family: 'Open Sans';
     font-weight: 500;
     color: #909090;
     line-height: 10px;
 }
 .total-amount{
-    font-size: 36px;
+    font-size: 18px;
     font-family: 'Open Sans';
     font-weight: 900;
     color: #202020;
@@ -181,6 +183,15 @@ hr{
 #cshop{
 
     text-decoration: none;
-    font-size:20px;
+    font-size:23px;
+    color: #5b2a02;
+    float: left;
+    margin-left: 5%;
+    width: 28%;
+    font-weight: 900;
+}
+#total{
+    font-size:23px;
     color:black;
+    font-weight: 800;
 }

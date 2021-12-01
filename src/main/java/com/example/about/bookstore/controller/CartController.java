@@ -13,34 +13,33 @@ import java.util.List;
 @Controller
 @RequestMapping("cart")
 public class CartController {
-//    @Autowired
-//    private ShoppingCartService shoppingCartService;
+
 
     @RequestMapping(method = RequestMethod.GET)
-    public String index(ModelMap modelMap,HttpSession session){
-//        modelMap.put("total",total(session));
+    public String index(ModelMap modelMap, HttpSession session) {
+     modelMap.put("total",total(session));
         return "/cart";
     }
 
 
-
     @Autowired
     private BookService bookService;
-    @RequestMapping(value = "buy/{id}",method = RequestMethod.GET)
-    public String buy(@PathVariable("id") int id, ModelMap modelMap, HttpServletRequest request){
+
+    @RequestMapping(value = "buy/{id}", method = RequestMethod.GET)
+    public String buy(@PathVariable("id") int id, ModelMap modelMap, HttpServletRequest request) {
         HttpSession session = request.getSession();
         if (session.getAttribute("cart") == null) {
 
-            List<Item> cart=new ArrayList<Item>();
-            cart.add(new Item(bookService.findById(id),1 ));
+            List<Item> cart = new ArrayList<Item>();
+            cart.add(new Item(bookService.findById(id), 1));
             session.setAttribute("cart", cart);
         } else {
-            List<Item> cart=(List<Item>) session.getAttribute("cart") ;
-            int index=isExits(id,cart);
-            if(index==-1){
-                cart.add(new Item(bookService.findById(id),1 ));
-            }else{
-                int quantity=cart.get(index).getQuantity()+1;
+            List<Item> cart = (List<Item>) session.getAttribute("cart");
+            int index = isExits(id, cart);
+            if (index == -1) {
+                cart.add(new Item(bookService.findById(id), 1));
+            } else {
+                int quantity = cart.get(index).getQuantity() + 1;
                 cart.get(index).setQuantity(quantity);
             }
             session.setAttribute("cart", cart);
@@ -50,44 +49,77 @@ public class CartController {
         return "redirect:/cart";
     }
 
-    @RequestMapping(value = "remove/{id}",method = RequestMethod.GET)
-    public String  remove(@PathVariable("id") int id,  HttpServletRequest request){
+    @RequestMapping(value = "remove/{id}", method = RequestMethod.GET)
+    public String remove(@PathVariable("id") int id, HttpServletRequest request) {
         HttpSession session = request.getSession();
-        List<Item> cart=(List<Item>) session.getAttribute("cart") ;
-        int index=isExits(id,cart);
+        List<Item> cart = (List<Item>) session.getAttribute("cart");
+        int index = isExits(id, cart);
         cart.remove(index);
         session.setAttribute("cart", cart);
         return "redirect:/cart";
     }
-    @RequestMapping(value = "update",method = RequestMethod.POST)
-    public String  update(  HttpServletRequest request){
+
+    @RequestMapping(value = "update", method = RequestMethod.POST)
+    public String update(HttpServletRequest request) {
         HttpSession session = request.getSession();
-        String[] quantities=request.getParameterValues("quantity");
-        List<Item> cart=(List<Item>) session.getAttribute("cart") ;
-        for (int i = 0; i <cart.size() ; i++) {
+        String[] quantities = request.getParameterValues("quantity");
+        List<Item> cart = (List<Item>) session.getAttribute("cart");
+        for (int i = 0; i < cart.size(); i++) {
             cart.get(i).setQuantity(Integer.parseInt(quantities[i]));
         }
         session.setAttribute("cart", cart);
         return "redirect:/cart";
     }
 
+    @RequestMapping(value = "clearCart", method = RequestMethod.GET)
+    public String clearCart( HttpServletRequest request) {
+        HttpSession session = request.getSession();
+        List<Item> cart = (List<Item>) session.getAttribute("cart");
+       cart.clear();
+       session.setAttribute("cart", cart);
+        return "redirect:/cart";
+    }
 
 
-    private int isExits(int id,List<Item> cart){
-        for(int i=0;i< cart.size();i++){
-            if(cart.get(i).getBookEntity().getId()==id){
+
+    private int isExits(int id, List<Item> cart) {
+        for (int i = 0; i < cart.size(); i++) {
+            if (cart.get(i).getBookEntity().getId() == id) {
                 return i;
             }
         }
         return -1;
-    } }
+    }
+
+    private double total(HttpSession session) {
+        List<Item> cart = (List<Item>) session.getAttribute("cart");
+        double s=0.0;
+        if(cart !=null) {
+            for (Item item : cart
+            ) {
+                s += item.getQuantity() * item.getBookEntity().getBookPrice().doubleValue();
+            }
+        }
+        return s;
+    }
+
+
+    @RequestMapping( value ="checkout", method = RequestMethod.GET)
+    public String checkout( HttpSession session) {
+        if(session.getAttribute("username")==null){
+            return "redirect:/login";
+        }else{
+            return "redirect:/cart";
+        }
+
+    }
 
 
 
 
 
 
-
+}
 
 
 
