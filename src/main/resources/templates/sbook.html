@@ -53,7 +53,7 @@
       <form >
         <input type="hidden" name="id"  th:value="${book.getId()}"/>
         <input type="number"  min="1" value="1" name="quantity">
-          <a th:href="${'/cart/buy/'+ book.getId()}" >Add To Card</a>
+          <a class="addcart" th:href="${'/cart/buy/'+ book.getId()}" >Add To Card</a>
 
 
       </form>

@@ -615,6 +615,10 @@ a:hover {
     background-color: #cd7f32;
     color: white;
 }
+.addcart{
+    text-decoration: none;
+    color: black;
+}
 
 @media only screen and (max-width: 696px){
 
