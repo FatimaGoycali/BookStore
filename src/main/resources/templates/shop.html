@@ -48,24 +48,6 @@
         <h2 class="font-weight-bold">Our Books</h2>
             <hr>
     </div>
-    <div class="container dropdown py-3">
-        <a class="link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Category</a>
-        <div class="dropdown-menu">
-            <a class="dropdown-item">Arts & Photography</a>
-            <a class="dropdown-item" href="#">Biographies</a>
-            <a class="dropdown-item" href="#">Comics</a>
-            <a class="dropdown-item" href="#">Comics</a>
-            <a class="dropdown-item" href="#">Science</a>
-            <a class="dropdown-item" href="#">History</a>
-            <a class="dropdown-item" href="#">Horror</a>
-            <a class="dropdown-item" href="#">Kids</a>
-            <a class="dropdown-item" href="#">Literature & Fiction</a>
-            <a class="dropdown-item" href="#">Mystery</a>
-            <a class="dropdown-item" href="#">Romance</a>
-            <a class="dropdown-item" href="#">Sci-Fi & Fantasy</a>
-        </div>
-    </div>
-
 
     <div class="box-container">
         <div th:each="params : ${parameter}"  >
@@ -89,11 +71,6 @@
                 </div>
             </a>
         </div>
-    </div>
-
-    <div class="pnbuttons">
-    <a th:href="@{/shop}" class="previous">&laquo; Previous</a>
-    <a th:href="@{/shop}" class="next">Next &raquo;</a>
     </div>
 
 </section>
