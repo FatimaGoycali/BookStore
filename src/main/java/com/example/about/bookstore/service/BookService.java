@@ -5,6 +5,8 @@ import com.example.about.bookstore.dao.repository.BookRepository;
 import com.example.about.bookstore.mapper.BookMapper;
 import com.example.about.bookstore.model.dto.BookDto;
 import org.springframework.stereotype.Service;
+
+import java.math.BigDecimal;
 import java.util.List;
 
 import java.util.stream.Collectors;
@@ -17,24 +19,6 @@ public class BookService {
         this.bookRepository = bookRepository;
     }
 
-//    public Page<BookEntity> getProduct(Integer page, String direction, String property) {
-//
-//        if (property.equals("Detective")) {
-//            return bookRepository.findDetective((Pageable) PageRequest.of(page, 8));
-////        } else  if(property.equals("drink")){
-////            return bookRepository.findDrink(PageRequest.of(page, 8));
-////        }else  if(property.equals("Personal Care")){
-////            return bookRepository.findPersonalCare(PageRequest.of(page, 8));
-////        }else  if(property.equals("Cleaning Supplies")){
-////            return bookRepository.findCleaningSupplies(PageRequest.of(page, 8));
-////        }
-//
-//
-//            return (Page<BookEntity>) bookRepository.findAll(PageRequest.of(page, 8));
-//
-//        }
-//    }
-
     public List<BookDto> getBookParams() {
         return bookRepository.findAll()
                 .stream()
@@ -43,6 +27,10 @@ public class BookService {
     }
 
     public BookEntity findById(Integer id) {
+        return bookRepository.findById(id).get();
+    }
+
+    public BookEntity getBookParams(Integer id) {
         return bookRepository.findById(id).get();
     }
 
@@ -55,10 +43,6 @@ public class BookService {
         List<BookEntity> books =
                 bookRepository.findByTypeB();
         return books;
-    }
-
-    public BookEntity getBookParams(Long id) {
-        return bookRepository.findById(Math.toIntExact(id)).get();
     }
 }
 

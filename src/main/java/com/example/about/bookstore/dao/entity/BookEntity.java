@@ -29,6 +29,13 @@ public class BookEntity {
         this.bookType = bookType;
     }
 
+
+    public BookEntity(String bookName, Double bookPrice, String bookType, String bookImg) {
+        this.bookName = bookName;
+        this.bookPrice = bookPrice;
+        this.bookImg = bookImg;
+        this.bookType = bookType;}
+
     public Integer getId() {
         return id;
     }

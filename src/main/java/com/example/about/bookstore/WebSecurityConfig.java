@@ -28,8 +28,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
             .authorizeRequests()
-                .antMatchers("/css/**","/js/**","/img/**", "/registration","/index","/shop","/about","/contact","/sbook/{bookId}/type/{bookType}","/welcome","/cart/buy/**","/cart/**","/cart/remove/**","/cart/update/**","/cart").permitAll()
-            //   .antMatchers().hasRole("USER")
+//                .antMatchers("/admin/products","/addNewProduct","/editProduct/**").hasRole("ADMIN")
+
+                .antMatchers("/css/**","/js/**","/img/**", "/registration","/index","/shop","/about","/contact**","/sbook/{bookId}/type/{bookType}").permitAll()
+               .antMatchers("/welcome","cart/buy/**","cart/**","cart/remove/**","cart/update/**","cart").hasRole("USER")
                 .anyRequest().authenticated()
                 .and()
             .formLogin()
