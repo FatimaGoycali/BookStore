@@ -13,7 +13,9 @@
 ## Login page and Shopping cart
 ![image](https://user-images.githubusercontent.com/89090893/158676174-fc412b1c-aba3-458b-b484-9ff3b6d3d6d6.png)
 ![image](https://user-images.githubusercontent.com/89090893/158676198-3b6e0fc7-9bba-41f5-b058-0f2f523ba018.png)
-![image](https://user-images.githubusercontent.com/89090893/158677969-caada528-ca15-4272-b780-23ac4ef5984f.png)
+*Contact us*
+![image](https://user-images.githubusercontent.com/89090893/158677868-e9113960-6e10-4240-98ef-d8bd9debd791.png)
+
 
 ## Contact us
 ![image](https://user-images.githubusercontent.com/89090893/158677868-e9113960-6e10-4240-98ef-d8bd9debd791.png)
