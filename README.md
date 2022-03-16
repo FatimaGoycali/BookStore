@@ -1,7 +1,8 @@
 # Book Store Project
 
 ## Home Page
-![image](https://user-images.githubusercontent.com/89090893/158667765-7adb240d-375e-4325-aa96-d962f1da8662.png)
+![image](https://user-images.githubusercontent.com/89090893/158682267-e1c770d2-7464-4317-a0ea-30337eb0150f.png)
+
 ![image](https://user-images.githubusercontent.com/89090893/158668732-7ab1434a-7758-4873-9a3f-90e10cb58ca9.png)
 ![image](https://user-images.githubusercontent.com/89090893/158668827-ede2ea9d-e86a-4a05-adcb-f7d927d01bfd.png)
 
